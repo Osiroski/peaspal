@@ -19,7 +19,7 @@ if (!process.env.PORT) {
     process.exit(1);
 }
 
-const PORT: number = parseInt(process.env.PORT as string, 10);
+const PORT = process.env.PORT || 3000
 
 const app = express();
 
