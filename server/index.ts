@@ -5,7 +5,6 @@ import * as dotenv from "dotenv";
 import express from "express";
 import bodyParser from "body-parser";
 import puppeteer from 'puppeteer';
-import cors from "cors";
 import helmet from "helmet";
 import { getText } from "./scrap";
 import path from "path";
@@ -31,9 +30,7 @@ const buildDir =path.join(__dirname , '..','build')
 app.use(express.static(buildDir));
 
 app.use(helmet());
-app.use(cors({
-    methods:['GET','POST']
-}));
+
 app.use(bodyParser.json());
 app.use(
     bodyParser.urlencoded({
