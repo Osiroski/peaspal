@@ -73,7 +73,7 @@ Your app is ready to be deployed!
 The repo is a compound solution solving three problems:
 
 
-### 1.Secure WebServer
+### 1. Secure WebServer
 Express is the most popular Node.JS framework to handle multiple different HTTP requests at a specific URL.
 <b>GET</b> method in Express to serve <b>STATIC Files</b> in the build folder compiled created after build
 ```javascript
@@ -114,7 +114,7 @@ app.listen(PORT, () => {
 <b>Static and Dynamic</b> are both handled by Express 
 <b>Secure HTTPS and SSL</b> are handled by the external vendor <img alt="Heroku" src="https://img.shields.io/badge/-Heroku-430098?style=flat-square&logo=heroku&logoColor=white" /> for free as a Quality Assurance feature. Evidenced by the 'https' url in the <a href="https://pesapaldev.herokuapp.com/"><b>Live Demo App</b></a>
 
-### 2.Forwarding/Rerouting Communication
+### 2. Forwarding/Rerouting Communication
 <p> A client/server pair of applications that can forward communication. The communication must be secured end-to-end using asymmetric key cryptography.
 
 This web app you are using right now is based on this concept.The client frontend (React) on tcp port: 3000 communicates to the backend on tcp port: 5000.
@@ -124,7 +124,7 @@ This web app you are using right now is based on this concept.The client fronten
 <p>Commuincation is encrypted and secured on the https protocol and proxy, thereby hiding the network path by embedding proxy layer</p>
 
 
-### 3 Markdown Engine Generator
+### 3. Markdown Engine Generator
 <p>Prism is a lightweight, extensible syntax highlighter, built with modern web standards in mind.</br> It’s used in millions of websites, including some of those you visit daily.</p>
 ![a prismjs](https://cdn.startblogging101.com/wp-content/uploads/2020/10/how-to-add-prism-js-syntax-highlighter-wordpress-gutenberg-800x400.png?width=1600)
 <p>Dead simple
