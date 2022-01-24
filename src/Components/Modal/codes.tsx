@@ -203,5 +203,18 @@ app.listen(PORT, () => {
     </div>
   )
 }
+export const Secure = () => {
+
+  return (
+    <div>
+      <a href="https://devcenter.heroku.com/articles/ssl">Heroku free SSL and Https Cert </a>
+    <pre>
+      <code className="language-javascript">
+        {`Apps using paid dynos (Hobby, Standard-1X, Standard-2X, Performance-M, and Performance-L) can use the provided *.herokuapp.com certificate, Automated Certificate Management (ACM), or manually uploaded certificates.`}
+      </code>
+    </pre>
+    </div>
+  )
+}
 
 

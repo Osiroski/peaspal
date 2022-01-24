@@ -28,7 +28,7 @@ const About = () => {
               <li><i className="bi bi-check-circle"></i>Markdown Generator</li>
               
             </ul>
-            <a href="/" className="read-more"><i className="bi bi-github"></i>Source Code </a>
+            <a href="https://github.com/Osiroski/peaspal" className="read-more"><i className="bi bi-github"></i>Source Code </a>
           </div>
         </Row>
       </Container>

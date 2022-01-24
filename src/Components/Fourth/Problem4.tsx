@@ -3,9 +3,7 @@
 import { Button, Spinner, Image, ButtonGroup, ToggleButton } from 'react-bootstrap';
 import './prob3.css';
 import React, { ChangeEvent } from 'react';
-import axios from 'axios';
 import image from '../../images/puppet.png';
-import image2 from '../../images/download.png'
 import './prism.css';
 import Prism from "prismjs";
 interface IState {
