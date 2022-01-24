@@ -118,6 +118,6 @@ app.listen(PORT, () => {
 client/server pair of applications that can forward communication. The communication must be secured end-to-end using asymmetric key cryptography.
 
 This web app you are using right now is based on this concept.The client frontend (React) on tcp port: 3000 communicates to the backend on tcp port: 5000
-![a building](https://www.google.com/url?sa=i&url=https%3A%2F%2Fdev.to%2Fsanamumtaz%2Fwebpack-dev-server-setting-up-proxy-59bk&psig=AOvVaw0oHpK7E1WtHr_8nbyY8shQ&ust=1643081663525000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCJCmx7O6yfUCFQAAAAAdAAAAABAD)
+![a building](https://res.cloudinary.com/practicaldev/image/fetch/s--trIHyE7j--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/y0rlzfwgr39e76gg8nsl.PNG)
 
 
