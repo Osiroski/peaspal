@@ -73,7 +73,7 @@ Your app is ready to be deployed!
 The repo is a compound solution solving three problems:
 
 
-### Secure WebServer
+### 1.Secure WebServer
 Express is the most popular Node.JS framework to handle multiple different HTTP requests at a specific URL.
 <b>GET</b> method in Express to serve <b>STATIC Files</b> in the build folder compiled created after build
 ```javascript
@@ -114,10 +114,36 @@ app.listen(PORT, () => {
 <b>Static and Dynamic</b> are both handled by Express 
 <b>Secure HTTPS and SSL</b> are handled by the external vendor <img alt="Heroku" src="https://img.shields.io/badge/-Heroku-430098?style=flat-square&logo=heroku&logoColor=white" /> for free as a Quality Assurance feature. Evidenced by the 'https' url in the <a href="https://pesapaldev.herokuapp.com/"><b>Live Demo App</b></a>
 
-### Forwarding/Rerouting Communication
-client/server pair of applications that can forward communication. The communication must be secured end-to-end using asymmetric key cryptography.
+### 2.Forwarding/Rerouting Communication
+<p> A client/server pair of applications that can forward communication. The communication must be secured end-to-end using asymmetric key cryptography.
 
-This web app you are using right now is based on this concept.The client frontend (React) on tcp port: 3000 communicates to the backend on tcp port: 5000
+This web app you are using right now is based on this concept.The client frontend (React) on tcp port: 3000 communicates to the backend on tcp port: 5000.
+<a href="https://pesapaldev.herokuapp.com/#clientApp"><b>Check it out</b></a></p>
+
 ![a building](https://res.cloudinary.com/practicaldev/image/fetch/s--trIHyE7j--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/y0rlzfwgr39e76gg8nsl.PNG)
+<p>Commuincation is encrypted and secured on the https protocol and proxy, thereby hiding the network path by embedding proxy layer</p>
+
+
+### 3 Markdown Engine Generator
+<p>Prism is a lightweight, extensible syntax highlighter, built with modern web standards in mind.</br> It’s used in millions of websites, including some of those you visit daily.</p>
+![a prismjs](https://pbs.twimg.com/profile_images/2451426554/Screen_Shot_2012-07-31_at_21.57.03__400x400.png)
+<p>Dead simple
+Include prism.css and prism.js, use proper HTML5 code tags (code.language-xxxx), done!</p>
+<p>Blazing fast
+Supports parallelism with Web Workers, if available.</p>
+
+```javascript
+import './prism.css';
+import Prism from "prismjs";
+....
+
+const Code = (props:Iprops) => {
+    useEffect(() => {
+        // Update the document title using the browser API
+        Prism.highlightAll();
+    });
+    return(....)
+    }
+  ```
 
 
