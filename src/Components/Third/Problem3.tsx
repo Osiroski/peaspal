@@ -9,7 +9,6 @@ import image from '../../images/puppet.png';
 import image2 from '../../images/download.png'
 import './prism.css';
 import Prism from "prismjs";
-import { getText } from './scrap';
 interface IState {
   Url: string;
   Data: {
@@ -49,8 +48,7 @@ const Problem3 = () => {
     })
       .then((response) => {
         if (response.status === 200) {
-          const text=getText(response.data.text)
-          setState(prevState => ({ ...prevState, Data: text }))
+          setState(prevState => ({ ...prevState, Data: response.data.text }))
         }
         else {
           clearState();

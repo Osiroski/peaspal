@@ -6,7 +6,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import puppeteer from 'puppeteer';
 import helmet from "helmet";
-import { getText } from "../src/Components/Third/scrap";
+import { getText } from "./scrap";
 import path from "path";
 
 dotenv.config();
