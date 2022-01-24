@@ -4,9 +4,7 @@
 import * as dotenv from "dotenv";
 import express from "express";
 import bodyParser from "body-parser";
-import puppeteer from 'puppeteer';
 import helmet from "helmet";
-import { getText } from "./scrap";
 import path from "path";
 
 dotenv.config();
@@ -38,32 +36,12 @@ app.use(
     })
 );
 // Handling POST request 
-app.post("/scrap", (req, res) => {
-  (async ()=>{
-    const browser= await puppeteer.launch({
-      headless: true
-    });
-    const page= (await browser.pages())[0];
-    await page.goto(req.body.url);
-    const extractedText = await page.$eval('*',(el)=>{
-      const selection= window.getSelection();
-      const range= document.createRange();
-      range.selectNode(el);
-      selection?.removeAllRanges();
-      selection?.addRange(range);
-      return window.getSelection()?.toString();
-      
-    }) as string
+app.post("/mark", (req, res) => {
     res.status(200).json({
-      text: getText(extractedText)
-    })
-    await browser.close();
-  })()
-  .catch((error:any)=>{
-    res.status(400);
-  }); 
-  
+      text: req.body.data
+    }) 
 })
+
 
 app.get("/", function (req, res) {
   res.sendFile(path.join(buildDir,'index.html'));

@@ -60,7 +60,7 @@ export const Stat = () => {
       <code className="language-javascript">
         {`//Serve static files 
 // get reference to the client build directory
-const buildDir =path.join(__dirname, '../../client/build')
+const buildDir =path.join(__dirname, '..//build')
 const staticFiles = express.static(buildDir)
 
 // pass the static files (react app) to the express app. 
@@ -84,33 +84,14 @@ export const Req = () => {
         app.get("/", function (req, res) {
           res.sendFile(path.join(buildDir+"index.html"));
           });
+// We use POST request to submit input as shown in the MarkDown Engine Example
+// The backend process the code and return a highlighted syntax 
 // Handling POST request 
-app.post("/scrap", (req, res) => {
-    (async ()=>{
-      const browser= await puppeteer.launch({
-        headless: true
-      });
-      const page= (await browser.pages())[0];
-      await page.goto(req.body.url);
-      const extractedText = await page.$eval('*',(el)=>{
-        const selection= window.getSelection();
-        const range= document.createRange();
-        range.selectNode(el);
-        selection?.removeAllRanges();
-        selection?.addRange(range);
-        return window.getSelection()?.toString();
-        
-      }) as string
-      res.status(200).json({
-        text: getText(extractedText)
-      })
-      await browser.close();
-    })()
-    .catch((error:any)=>{
-      res.status(400);
-    }); 
-    
-  })`}
+app.post("/mark", (req, res) => {
+    res.status(200).json({
+      text: req.body.data
+    }) 
+})`}
       </code>
     </pre>
     </div>
@@ -165,10 +146,7 @@ export const ExpressJs = () => {
 import * as dotenv from "dotenv";
 import express from "express";
 import bodyParser from "body-parser";
-import puppeteer from 'puppeteer';
-import cors from "cors";
 import helmet from "helmet";
-import { getText } from "./scrap";
 import path from "path";
 
 dotenv.config();
@@ -188,53 +166,30 @@ const app = express();
  *  App Configuration
  */
 // get reference to the client build directory
-const buildDir =path.join(__dirname, '../../client/build')
-const staticFiles = express.static(buildDir)
-// pass the static files (react app) to the express app. 
-app.use(staticFiles)
+const buildDir =path.join(__dirname , '..','build')
+app.use(express.static(buildDir));
 
 app.use(helmet());
-app.use(cors({
-    methods:['GET','POST']
-}));
+
 app.use(bodyParser.json());
 app.use(
     bodyParser.urlencoded({
         extended: true,
     })
 );
+// Handling POST request 
+app.post("/mark", (req, res) => {
+    res.status(200).json({
+      text: req.body.data
+    }) 
+})
+
 
 app.get("/", function (req, res) {
-  res.sendFile(path.join(buildDir+"index.html"));
+  res.sendFile(path.join(buildDir,'index.html'));
   });
 
-// Handling POST request 
-app.post("/scrap", (req, res) => {
-    (async ()=>{
-      const browser= await puppeteer.launch({
-        headless: true
-      });
-      const page= (await browser.pages())[0];
-      await page.goto(req.body.url);
-      const extractedText = await page.$eval('*',(el)=>{
-        const selection= window.getSelection();
-        const range= document.createRange();
-        range.selectNode(el);
-        selection?.removeAllRanges();
-        selection?.addRange(range);
-        return window.getSelection()?.toString();
-        
-      }) as string
-      res.status(200).json({
-        text: getText(extractedText)
-      })
-      await browser.close();
-    })()
-    .catch((error:any)=>{
-      res.status(400);
-    }); 
-    
-  })
+
 
 /**
  * Server Activation

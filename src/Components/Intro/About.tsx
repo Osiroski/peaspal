@@ -25,7 +25,7 @@ const About = () => {
             <ul>
               <li><i className="bi bi-check-circle"></i>Implementing a Secure Webserver</li>
               <li><i className="bi bi-check-circle"></i>Re-routing/forwarding communication. </li>
-              <li><i className="bi bi-check-circle"></i>Dictionary WebScrapping</li>
+              <li><i className="bi bi-check-circle"></i>Markdown Generator</li>
               
             </ul>
             <a href="/" className="read-more"><i className="bi bi-github"></i>Source Code </a>
