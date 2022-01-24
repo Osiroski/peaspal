@@ -145,9 +145,9 @@ const Code = (props:Iprops) => {
     return(....)
     }
   ```
-  <p> In the server we use POST request to Handle the code input, and user selection. Prismjs supports over 160 language confugurations. </br>.
-  In our demo we have only used four, HTML,Python,CSS,Javascript</p>
-  <a href="https://pesapaldev.herokuapp.com/#faq"><b>Check it out</b></a>
+  <p> In the server we use POST request to Handle the code input, and user selection. Prismjs supports over 160 language confugurations.</br>
+  In our demo we have only used four, HTML,Python,CSS,Javascript. </br>
+  <a href="https://pesapaldev.herokuapp.com/#faq"><b>Check it out</b></a></p>
  
   ```javascript
 // Handling POST request 
@@ -157,5 +157,9 @@ app.post("/mark", (req, res) => {
     }) 
 })
 ```
-
+## Credits
+### Acknowlegdements (No man is an island)  :bowtie: `:bowtie:`
+1. https://daveceddia.com/deploy-react-express-app-heroku/
+2. https://stackoverflow.com/questions/11804202/how-do-i-setup-a-ssl-certificate-for-an-express-js-server/51937957
+3. https://reactjs.org/docs/optimizing-performance.html
 
