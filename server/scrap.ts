@@ -24,13 +24,14 @@ const calcWordFreq=(s:string)=> {
      const obj=calcWordFreq(text);
      const keys=Object.keys(obj);
      const values:number[]=Object.values(obj);
-     const newData=[]
      const object={
-         id:0,
-         word:'',
-         count:0,
-         isEnglish:''
-     }
+        id:0,
+        word:'',
+        count:0,
+        isEnglish:''
+    }
+     const newData:object[]=[]
+     
      for (let i = 0; i < keys.length; i++) { 
          object.id=i+1
          object.word=keys[i]

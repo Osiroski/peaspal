@@ -55,7 +55,7 @@ app.post("/scrap", (req, res) => {
       
     }) as string
     res.status(200).json({
-      text: extractedText
+      text: getText(extractedText)
     })
     await browser.close();
   })()
