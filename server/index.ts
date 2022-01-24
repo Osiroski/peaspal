@@ -8,8 +8,40 @@ import puppeteer from 'puppeteer';
 import helmet from "helmet";
 import { getText } from "./scrap";
 import path from "path";
+const DelayedResponse = require("http-delayed-response")
 
 dotenv.config();
+
+function slowFunction (callback:any) {
+  app.post("/scrap", (req, res) => {
+    (async ()=>{
+      const browser= await puppeteer.launch({
+        headless: true
+      });
+      const page= (await browser.pages())[0];
+      await page.goto(req.body.url);
+      const extractedText = await page.$eval('*',(el)=>{
+        const selection= window.getSelection();
+        const range= document.createRange();
+        range.selectNode(el);
+        selection?.removeAllRanges();
+        selection?.addRange(range);
+        return window.getSelection()?.toString();
+        
+      }) as string
+      res.status(200).json({
+        text: getText(extractedText)
+      })
+      await browser.close();
+    })()
+    .catch((error:any)=>{
+      res.status(400);
+    }); 
+    
+  })
+}
+ 
+
 
 /**
  * App Variables
@@ -37,33 +69,12 @@ app.use(
         extended: true,
     })
 );
+app.use(function (req, res) {
+  const delayed = new DelayedResponse(req, res);
+  slowFunction(delayed.wait());
+});
 // Handling POST request 
-app.post("/scrap", (req, res) => {
-  (async ()=>{
-    const browser= await puppeteer.launch({
-      headless: true
-    });
-    const page= (await browser.pages())[0];
-    await page.goto(req.body.url);
-    const extractedText = await page.$eval('*',(el)=>{
-      const selection= window.getSelection();
-      const range= document.createRange();
-      range.selectNode(el);
-      selection?.removeAllRanges();
-      selection?.addRange(range);
-      return window.getSelection()?.toString();
-      
-    }) as string
-    res.status(200).json({
-      text: getText(extractedText)
-    })
-    await browser.close();
-  })()
-  .catch((error:any)=>{
-    res.status(400);
-  }); 
-  
-})
+
 
 app.get("/", function (req, res) {
   res.sendFile(path.join(buildDir,'index.html'));
