@@ -126,7 +126,7 @@ This web app you are using right now is based on this concept.The client fronten
 
 ### 3 Markdown Engine Generator
 <p>Prism is a lightweight, extensible syntax highlighter, built with modern web standards in mind.</br> It’s used in millions of websites, including some of those you visit daily.</p>
-![a prismjs](https://pbs.twimg.com/profile_images/2451426554/Screen_Shot_2012-07-31_at_21.57.03__400x400.png)
+![a prismjs](https://cdn.startblogging101.com/wp-content/uploads/2020/10/how-to-add-prism-js-syntax-highlighter-wordpress-gutenberg-800x400.png?width=1600)
 <p>Dead simple
 Include prism.css and prism.js, use proper HTML5 code tags (code.language-xxxx), done!</p>
 <p>Blazing fast
@@ -145,5 +145,17 @@ const Code = (props:Iprops) => {
     return(....)
     }
   ```
+  <p> In the server we use POST request to Handle the code input, and user selection. Prismjs supports over 160 language confugurations. </br>.
+  In our demo we have only used four, HTML,Python,CSS,Javascript</p>
+  <a href="https://pesapaldev.herokuapp.com/#faq"><b>Check it out</b></a>
+ 
+  ```javascript
+// Handling POST request 
+app.post("/mark", (req, res) => {
+    res.status(200).json({
+      text: req.body.data
+    }) 
+})
+```
 
 
